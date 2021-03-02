@@ -13,10 +13,9 @@ import party
 import enemy_waves
 from settings import *
 
-
 class MyGame(arcade.Window):
     """ Our custom Window Class"""
-
+    
     def __init__(self):
         """ Initializer """
         # Call the parent class initializer

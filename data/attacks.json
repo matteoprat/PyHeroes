@@ -3,7 +3,7 @@
         "type":"melee",
         "media":"attacks/melee_sword",
         "speed":1,
-        "element":"physic",
+        "element":"physic"
     },
     "magic missile": {
         "type":"magic",
