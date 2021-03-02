@@ -1,0 +1,14 @@
+{
+    "sword": {
+        "type":"melee",
+        "media":"attacks/melee_sword",
+        "speed":1,
+        "element":"physic",
+    },
+    "magic missile": {
+        "type":"magic",
+        "media":"attacks/magic_magic_missile",
+        "speed":2,
+        "element":"fire"
+    }
+}

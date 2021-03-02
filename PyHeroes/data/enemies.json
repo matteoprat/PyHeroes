@@ -1,0 +1,156 @@
+{
+    "Bride": {
+        "img": "enemies/evil_bride",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Casper": {
+        "img": "enemies/evil_casper",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Caster": {
+        "img": "enemies/evil_caster",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Deerman": {
+        "img": "enemies/evil_deerman",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Demon": {
+        "img": "enemies/evil_demon",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Ghost": {
+        "img": "enemies/evil_ghost",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Knight": {
+        "img": "enemies/evil_knight",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Naga": {
+        "img": "enemies/evil_naga",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Pumpkin": {
+        "img": "enemies/evil_pumpkin",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Santa": {
+        "img": "enemies/evil_santa",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Skeleton": {
+        "img": "enemies/evil_skeleton",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Snowman": {
+        "img": "enemies/evil_snowman",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Soldier": {
+        "img": "enemies/evil_soldier",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    },
+    "Waitress": {
+        "img": "enemies/evil_waitress",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None",
+        "speed":0.01
+    }
+}

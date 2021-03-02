@@ -1,0 +1,112 @@
+{
+    "Archer": {
+        "img": "heroes/good_archer_male",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Crusader": {
+        "img": "heroes/good_paladin_male",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Druid": {
+        "img": "heroes/good_druid_girl",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Healer": {
+        "img": "heroes/good_healer",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Mage": {
+        "img": "heroes/good_mage_girl",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Monk": {
+        "img": "heroes/good_monk_male",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Necromancer": {
+        "img": "heroes/good_necro_girl",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Paladin": {
+        "img": "heroes/good_paladin_girl",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Rogue": {
+        "img": "heroes/good_rogue_male",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Shooter": {
+        "img": "heroes/good_shooter_male",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    },
+    "Warrior": {
+        "img": "heroes/good_warrior_male",
+        "hp": 20,
+        "cooldown": 10,
+        "atk_type": "melee",
+        "dmg": 10,
+        "xp": 10,
+        "gold": 10,
+        "weakness": "None"
+    }
+}
