@@ -1,54 +1,43 @@
-import os
 import json
 import arcade
+import utils
+
 # SETTINGS FOR THE GAME
-
-
-def load_images(img: str) -> list:
-    # load image from file, divide into 32x32 tiles
-    # assign to character facing, DOWN, LEFT, RIGHT or UP
-    filename = os.path.join(os.path.dirname(__file__), '..', 'assets',
-                            img+".png")
-    images = {}
-    for h in range(4):
-        tmp = []
-        for w in range(3):
-            x, y = SPRITE_W*w, SPRITE_H*h
-            tmp.append(arcade.load_texture(filename,
-                                           x, y, 32, 32, False))
-        images[["DOWN", "LEFT", "RIGHT", "UP"][h]] = tmp
-    return images
-
-
 # SCREEN SETTINGS AND TITLE
-SCREEN_WIDTH = 600
-SCREEN_HEIGHT = 800
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 1000
 SCREEN_TITLE = "pyHeroes"
 
-MOVEMENT_SPEED = 0.6
+# Gui directory
+GUI = "assets/gui"
+
+MOVEMENT_SPEED = 4
 SPRITE_FPS = 5
 
 SPRITE_W = 32
 SPRITE_H = 32
-SCALE = 1.1
+SCALE = 1.5
 
-# UNIT NAME AND PICTURE
+LAST_LEVEL = "3-0"
+WORLDS = ["ONCE UPON A TIME...", "...A HERO HAS RISED", "GATHERING FRIENDS", "HARD BATTLES"]
 
+# UNITS NAMES AND PICTURES
 # ENEMIES
 ENEMIES_LIST = {}
-with open(os.path.join(os.path.dirname(__file__), "..", "data", "enemies.json"), "r") as f:
+
+with open(utils.get_file_path("data", "enemies","json"), "r") as f:
     ENEMIES_LIST = json.load(f)
-ENEMY_SPRITES = {k: load_images(v["img"]) for k, v in ENEMIES_LIST.items()}
+ENEMY_SPRITES = {k: utils.load_images(v["img"], SPRITE_W, SPRITE_H) for k, v in ENEMIES_LIST.items()}
 
 # HEROES
 HEROES_LIST = {}
-with open(os.path.join(os.path.dirname(__file__), "..", "data", "heroes.json"), "r") as f:
+with open(utils.get_file_path("data", "heroes","json"), "r") as f:
     HEROES_LIST = json.load(f)
-HEROES_SPRITES = {k: load_images(v["img"]) for k, v in HEROES_LIST.items()}
+HEROES_SPRITES = {k: utils.load_images(v["img"], SPRITE_W, SPRITE_H) for k, v in HEROES_LIST.items()}
 
+# PROJECTILES NAMES AND PICTURES
 PROJECTILES_LIST = {}
-with open(os.path.join(os.path.dirname(__file__), "..", "data", "attacks.json"), "r") as f:
+with open(utils.get_file_path("data", "attacks","json"), "r") as f:
     PROJECTILES_LIST = json.load(f)
-
-PROJECTILES_IMGS = {k, arcade.load_texture(os.path.join(os.path.dirname(__file__), '..',
-                     'assets', PROJECTILES_LIST[k]["media"]+".png")) for k in PROJECTILES_LIST}
+PROJECTILES_IMGS = {k:arcade.load_texture(utils.get_file_path("assets",PROJECTILES_LIST[k]["media"],"png")) for k in PROJECTILES_LIST}

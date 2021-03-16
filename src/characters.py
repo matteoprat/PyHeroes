@@ -4,6 +4,7 @@ Created on 24 feb 2021
 @author: Matteo Pratellesi
 '''
 import arcade
+import projectiles
 from settings import *
 from typing import Union
 
@@ -13,7 +14,6 @@ class Character(arcade.Sprite):
                    
         # Default character facing
         self.character_face_direction = direction
-
         
         self.cur_texture = 0
         self.scale = SCALE
@@ -59,11 +59,24 @@ class Character(arcade.Sprite):
     def fire(self) -> Union[None, object]:
         self.active_atk_cooldown -= 1
         if self.active_atk_cooldown == 0:
-            #projectile = attack.Projectile(self.atk_type,self.type, self.atk_dmg)
-            print("fire")
             self.active_atk_cooldown = self.atk_cooldown
-            #return projectile
+            if self.type == "Hero":
+                if self.active == True:
+                    projectile = projectiles.Projectile(self.type, self.atk_type, self.atk_dmg, self.center_x, self.top)
+                    return projectile
+                else:
+                    return None
+            else:
+                projectile = projectiles.Projectile(self.type, self.atk_type, self.atk_dmg, self.center_x, self.bottom)
+                return projectile
 
+    def take_damage(self, projectile) -> None:
+        if self.active == True:
+            new_hp = self.current_hp - projectile.damage
+            self.current_hp = new_hp if new_hp > 0 else 0
+
+    def killed(self):
+        self.active = False
 
 class Heroes(Character):
     def __init__(self, unit_name: str, unit_type: str="Hero", direction:str ="UP"):
@@ -71,12 +84,12 @@ class Heroes(Character):
         self.hp = HEROES_LIST[unit_name]["hp"]
         self.current_hp = HEROES_LIST[unit_name]["hp"]
 
+        self.active = True
         self.atk_type = HEROES_LIST[unit_name]["atk_type"]
         self.atk_dmg = HEROES_LIST[unit_name]["dmg"]
         self.atk_cooldown = HEROES_LIST[unit_name]["cooldown"]
         self.active_atk_cooldown = HEROES_LIST[unit_name]["cooldown"]
 
-    
 class Enemies(Character):
     def __init__(self,unit_name: str, unit_type="Enemy", direction="DOWN"):
         super().__init__(unit_name, unit_type, direction)
@@ -85,11 +98,15 @@ class Enemies(Character):
 
         self.hp = ENEMIES_LIST[unit_name]["hp"]
         self.current_hp =  ENEMIES_LIST[unit_name]["hp"]
-        
+        self.active = True
+
         self.atk_type = ENEMIES_LIST[unit_name]["atk_type"]
         self.atk_dmg = ENEMIES_LIST[unit_name]["dmg"]
         self.atk_cooldown = ENEMIES_LIST[unit_name]["cooldown"]
         self.active_atk_cooldown = ENEMIES_LIST[unit_name]["cooldown"]
+
+        self.gold = ENEMIES_LIST[unit_name]["gold"]
+        self.xp = ENEMIES_LIST[unit_name]["xp"]
     
     def update_position(self) -> None:
         self.movement_counter += 1

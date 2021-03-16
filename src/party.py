@@ -1,6 +1,4 @@
-import arcade
 from settings import *
-import characters
 
 class Party():
     def __init__(self) -> None:
@@ -10,11 +8,13 @@ class Party():
         self.right = 0
         self.top = 0
         self.bottom = 0
+        self.size = 0
 
     def add_unit(self, unit: object, posy: int, posx: int) -> None:
         self.positions[posy][posx] = unit
         unit.center_x = (SCREEN_WIDTH-(3*(SPRITE_W*SCALE)))//2+(posx*(SPRITE_W*SCALE))
         unit.center_y = 200-posy*(SPRITE_W*SCALE)
+        self.size += 1
 
     def del_unit(self, unit: object) -> None:
         for i in range(3):

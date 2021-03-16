@@ -1,0 +1,19 @@
+{
+    "Max_Level":"0:0",
+    "Gold":1,
+    "Unlocked_Units":["Warrior"],
+    "Units_Level":{
+        "Archer":0,
+        "Crusader":0,
+        "Druid":0,
+        "Healer":0,
+        "Mage":0,
+        "Monk":0,
+        "Necromancer":0,
+        "Paladin": 0,
+        "Rogue": 0,
+        "Shooter": 0,
+        "Warrior": 1
+        },
+    "Formation":[["","",""],["","Warrior",""],["","",""]]
+}

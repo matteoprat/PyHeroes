@@ -1,0 +1,38 @@
+Edit levels:
+--- Edit World View (16 worlds on screen)
+	EMPTY 
+	     	... Add world
+			... create new world with name
+			    and 16 empty levels
+	EXISTING
+		... Rename
+		... Delete (if world >= 2, push back world > 				    
+			    than deleted one)
+		... Edit Stages -> open Edit Stage View
+	Navigation Buttons
+   	   <---- ----->
+	Back to tile Button
+
+--- Edit Stage View (show 36 waves on screen)
+	EDIT LEVEL
+		EMPY WAVE:
+			... Add wave
+
+		EXISTING WAVE:
+			... Edit Wave View
+			... Delete Wave (if wave >= 2 push back
+					greater waves)
+
+--- Edit Wave Vies (show world - stage)
+	--- show a tiled grid with unit
+		can be deleted
+	--- bottom show units
+		click on unit, start drag
+		click on tile, overwrite tile with unit
+	--- Save Button (available if actual_wave != starting_wave)
+	--- Back Button
+		
+		    
+		
+
+	

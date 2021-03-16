@@ -2,13 +2,17 @@
     "sword": {
         "type":"melee",
         "media":"attacks/melee_sword",
-        "speed":1,
-        "element":"physic"
+        "yspeed":10,
+        "xspeed":0,
+        "element":"physic",
+        "movement":"linear"
     },
     "magic missile": {
         "type":"magic",
         "media":"attacks/magic_magic_missile",
-        "speed":2,
-        "element":"fire"
+        "yspeed":10,
+        "xspeed":1,
+        "element":"fire",
+        "movement":"parabolic"
     }
 }

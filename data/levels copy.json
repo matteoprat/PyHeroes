@@ -1,0 +1,73 @@
+{
+    "0": {
+        "Title": "Default",
+        "1": [
+            [
+                "Bride",
+                "",
+                "Bride",
+                "",
+                ""
+            ],
+            [
+                "",
+                "Bride",
+                "",
+                "Bride",
+                ""
+            ],
+            [
+                "Ghost",
+                "",
+                "Naga",
+                "",
+                "Knight"
+            ],
+            [
+                "Bride",
+                "",
+                "Bride",
+                "",
+                ""
+            ],
+            [
+                "",
+                "Bride",
+                "",
+                "Bride",
+                ""
+            ]
+        ],
+        "2": [
+            [
+                "Bride",
+                "",
+                "Bride",
+                "",
+                ""
+            ],
+            [
+                "Ghost",
+                "",
+                "Naga",
+                "",
+                "Knight"
+            ],
+            [
+                "Bride",
+                "",
+                "Bride",
+                "",
+                ""
+            ],
+            [
+                "",
+                "Bride",
+                "",
+                "Bride",
+                ""
+            ]
+        ]
+    },
+    "1":{"Title":"Sticazzi","1":[["Bride"]]}
+}
