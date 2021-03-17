@@ -14,7 +14,7 @@ class EnemyWave():
     def _spawn_enemies(self) -> list:
         enemies = []
         rows = len(self.wave)
-        for i in range(len(self.wave)):
+        for i in range(len(self.wave)-1,-1, -1):
             for j in range(len(self.wave[0])):
                 unit = self.wave[i][j]
                 if unit != "":
@@ -23,6 +23,6 @@ class EnemyWave():
 
     def _add_unit(self, unit: str, posy: int, posx: int, rows: int) -> object:
         this_unit = characters.Enemies(unit)
-        this_unit.center_x = (SCREEN_WIDTH-(3*(SPRITE_W*SCALE)))//2+(posx*(SPRITE_W*SCALE))
-        this_unit.center_y = (SCREEN_HEIGHT-(SPRITE_H*rows))+posy*(SPRITE_W*SCALE)
+        this_unit.left = 63+((this_unit.width+4)*posx)
+        this_unit.top = SCREEN_HEIGHT+(this_unit.height*posy)+4
         return this_unit

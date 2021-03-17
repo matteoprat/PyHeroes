@@ -42,10 +42,10 @@ class GuiBox(arcade.gui.UIImageButton):
         self.pressed_texture = self.texture
 
 class UnitSelected(arcade.Sprite):
-    def __init__(self, dummy, texture):
-        super().__init__(dummy)
+    def __init__(self, texture, scale):
+        super().__init__()
         self.texture = texture
-        self.scale = 1.8
+        self.scale = scale
 
 class MenuView(arcade.View):
     
@@ -126,7 +126,7 @@ class MenuView(arcade.View):
         self.ui_manager.add_ui_element(input_box)
         return input_box
 
-    def add_unit_selected(self, x: float, y: float, texture: object, x_align: str="center_x", y_align: str="center_y"):
-        element = UnitSelected(utils.get_file_path("assets/gui/title","btn_play_normal","png"), texture)
+    def add_unit_selected(self, x: float, y: float, texture: object, x_align: str="center_x", y_align: str="center_y", scale: float=1.0):
+        element = UnitSelected(texture, scale)
         self.align_ui_item(element, x, y, x_align, y_align)
         self.sprites.append(element)

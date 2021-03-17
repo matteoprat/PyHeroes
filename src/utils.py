@@ -119,12 +119,11 @@ def add_stage(levels: list) -> list:
 
 # WAVES RELATED
 
-def add_wave(stage: list, wave: list=[]) -> list:
-    stage.append(wave)
+def add_wave(stage: str, waves, wave: list=[]) -> list:
+    waves.append(wave)
     with open(get_file_path("data/levels", stage, "json"), "w") as f:
-        
-        json.dump(stage, f, indent=2)
-    return stage
+        json.dump(waves, f, indent=2)
+    return waves
 
 def load_waves(stage: str) -> list:
     data = []

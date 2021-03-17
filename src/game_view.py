@@ -16,6 +16,7 @@ class MyGame(arcade.View):
         self.last_level = LAST_LEVEL
         self.world = 0
         self.level = 0
+        self.wave_timeout = 260*2
 
         # Sprite lists
         self.player_list = None
@@ -47,8 +48,8 @@ class MyGame(arcade.View):
         self.player_list.extend(self.party.list_units)
         
         # Load enemies formation
-        wave_map = utils.load_stage(self.window.levels[self.world]["Levels"][self.level])
-        current_wave = enemy_waves.EnemyWave(wave_map[0])
+        self.wave_map = utils.load_stage(self.window.levels[self.world]["Levels"][self.level])
+        current_wave = enemy_waves.EnemyWave(self.wave_map.pop(0))
         self.enemies_list.extend(current_wave.enemies_list)
 
         # Set the background color
@@ -197,6 +198,14 @@ class MyGame(arcade.View):
         if self.party.bottom < 0:
             for unit in self.player_list:
                 unit.bottom += MOVEMENT_SPEED
+
+        if self.wave_timeout > 0:
+            self.wave_timeout -= 1
+        else:
+            if len(self.wave_map) > 0:
+                current_wave = enemy_waves.EnemyWave(self.wave_map.pop(0))
+                self.enemies_list.extend(current_wave.enemies_list)
+            self.wave_timeout = 260*2
 
         # Update sprite
         # Update the players animation

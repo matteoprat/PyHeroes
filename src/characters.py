@@ -60,15 +60,14 @@ class Character(arcade.Sprite):
         self.active_atk_cooldown -= 1
         if self.active_atk_cooldown == 0:
             self.active_atk_cooldown = self.atk_cooldown
-            if self.type == "Hero":
-                if self.active == True:
+            if self.active == True:
+                if self.type == "Hero":
                     projectile = projectiles.Projectile(self.type, self.atk_type, self.atk_dmg, self.center_x, self.top)
-                    return projectile
                 else:
-                    return None
-            else:
-                projectile = projectiles.Projectile(self.type, self.atk_type, self.atk_dmg, self.center_x, self.bottom)
+                    projectile = projectiles.Projectile(self.type, self.atk_type, self.atk_dmg, self.center_x, self.bottom)
                 return projectile
+            else:
+                return None
 
     def take_damage(self, projectile) -> None:
         if self.active == True:
@@ -98,7 +97,7 @@ class Enemies(Character):
 
         self.hp = ENEMIES_LIST[unit_name]["hp"]
         self.current_hp =  ENEMIES_LIST[unit_name]["hp"]
-        self.active = True
+        self.active = False
 
         self.atk_type = ENEMIES_LIST[unit_name]["atk_type"]
         self.atk_dmg = ENEMIES_LIST[unit_name]["dmg"]
@@ -114,3 +113,6 @@ class Enemies(Character):
             self.change_y += self.speed
             self.update_animation()
             self.movement_counter = 0
+            if self.active == False:
+                if self.bottom <= SCREEN_HEIGHT:
+                    self.active = True

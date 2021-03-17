@@ -238,7 +238,6 @@ class WavesEditor(MenuView):
         
         if self.selected_unit == "":
             self.selected_unit = self.units_[0][0]
-        self.wave = utils.load_waves(self.stage)[self.current_wave]
         this_dir = GUI+"/level_edit/wave"
         
         # GUI fixed elements / Sprites
@@ -247,13 +246,14 @@ class WavesEditor(MenuView):
         self.add_sprite(50.4, 165, "sprt_units_grid", dir_ = this_dir)
 
         # GUI Buttons - SAVE / CANCEL
-        self.add_view_button(608, 231, "btn_save", "save_btn", self.save_wave, self.current_wave, x_align="left", y_align="bottom", dir_=this_dir)
+        self.add_view_button(608, 231, "btn_save", "save_btn", self.save_wave, self.wave, x_align="left", y_align="bottom", dir_=this_dir)
         self.add_view_button(608, 170, "btn_cancel", "cancel_btn", self.load_default, 1, x_align="left", y_align="bottom", dir_=this_dir)
 
         # GUI Buttons - Units
         x_margin, x_distance = 181, 53
         y_margin, y_distance = 280, 59
 
+        # UNITS SELECTION
         unit_id = 0
         for i in range(2):
             for j in range(7):
@@ -262,8 +262,24 @@ class WavesEditor(MenuView):
                 y = y_margin - (i*y_distance)
                 self.add_unit_button(x,y, this_sprite[1], unit_id, self.select_sprite, this_sprite[0], x_align="left", y_align="top")
                 unit_id += 1
-        self.add_unit_selected(111, 231, ENEMY_SPRITES[self.selected_unit]["DOWN"][1])
+        self.add_unit_selected(88, 231, ENEMY_SPRITES[self.selected_unit]["DOWN"][1], x_align="left", scale=1.8)
 
+        # GRID WITH PLACED UNITS OR EMPTY SPACES
+        ux, ux_dist = 68, 52.1
+        uy, uy_dist = 428, 58
+        grid_id = 0
+        for i in range(4,-1,-1):
+            for j in range(13):
+                grid_pos = (i,j)
+                unit = self.wave[i][j]
+                x = ux + (ux_dist*j)
+                y = uy + (uy_dist*i)        
+                if unit != "":
+                    self.add_unit_selected(x, y, ENEMY_SPRITES[unit]["DOWN"][1], x_align="left", y_align="top")
+                    self.add_view_button(x+10,y+4, "btn_delete_small", "grid"+str(grid_id), self.remove_unit, grid_pos, x_align="left", y_align="top")
+                else:
+                    self.add_view_button(x,y, "btn_add", "grid"+str(grid_id), self.add_unit, [grid_pos,self.selected_unit], x_align="left", y_align="top")
+                grid_id += 1
 
     def select_sprite(self, name: str):
         self.selected_unit = name
@@ -276,6 +292,7 @@ class WavesEditor(MenuView):
 
     def load_wave(self, id: int):
         self.current_wave = id
+        self.wave = utils.load_waves(self.stage)[self.current_wave]
         self.edit = 1
         self.setup()
 
@@ -284,18 +301,30 @@ class WavesEditor(MenuView):
         utils.write_wave(self.stage, self.waves)
         self.setup()
 
+    def add_unit(self, params):
+        pos, unit = params
+        self.wave[pos[0]][pos[1]] = unit
+        self.setup()
+
+    def remove_unit(self, pos):
+        self.wave[pos[0]][pos[1]] = ""
+        self.setup()
+
     def save_wave(self, param):
-        pass
+        self.waves[self.current_wave]=self.wave
+        utils.write_waves(self.stage, self.waves)
+        self.edit = 0
+        self.setup()
 
     def load_default(self, param):
         self.edit = 0
         self.setup()
 
     def add_wave(self, lvl_n: int) -> None:
-        #self.window.levels[self.world]["Levels"] = utils.add_stage(self.window.levels[self.world]["Levels"])
-        #utils.write_world(self.window.levels)
-        #self.setup()
-        pass
+        wave = [[""]*13]*5
+        self.waves = utils.add_wave(self.stage, self.waves, wave)
+        self.setup()
+
 
 
     
